@@ -3,7 +3,8 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="af-magic"
+ZSH_THEME="catppuccin"
+CATPPUCCIN_FLAVOR="macchiato"
 plugins=(git brew npm nvm lxd terraform kubectl docker golang helm httpie)
 
 source $ZSH/oh-my-zsh.sh
