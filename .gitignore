@@ -1,0 +1,6 @@
+.config/tmux/plugins/**
+.DS_Store
+.config/fastfetch/*.jpeg
+.config/fastfetch/*.jpg
+.config/fastfetch/*.png
+
