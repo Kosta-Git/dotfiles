@@ -4,3 +4,4 @@
 .config/fastfetch/*.jpg
 .config/fastfetch/*.png
 
+.config/nvim/lazy-lock.json
