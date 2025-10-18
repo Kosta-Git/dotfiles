@@ -33,7 +33,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export OCD_T=$OPEN_OCD_SCRIPTS/target
   [ -f "/Users/kosta/.ghcup/env" ] && . "/Users/kosta/.ghcup/env" # ghcup-env
   alias claude="/Users/kosta/.claude/local/claude"
-  export PATH="$PATH:/Users/kosta/Library/Application Support/Coursier/bin"
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
@@ -77,3 +76,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export ARCHFLAGS="-arch $(uname -m)"
 
+eval "$(cs install --env)"
