@@ -31,6 +31,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export OPEN_OCD_SCRIPTS=/opt/homebrew/Cellar/open-ocd/0.12.0_1/share/openocd/scripts
   export OCD_I=$OPEN_OCD_SCRIPTS/interface
   export OCD_T=$OPEN_OCD_SCRIPTS/target
+  [ -f "/Users/kosta/.ghcup/env" ] && . "/Users/kosta/.ghcup/env" # ghcup-env
+  alias claude="/Users/kosta/.claude/local/claude"
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
@@ -74,4 +76,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export ARCHFLAGS="-arch $(uname -m)"
 
-[ -f "/Users/kosta/.ghcup/env" ] && . "/Users/kosta/.ghcup/env" # ghcup-env
+eval "$(cs install --env)"
