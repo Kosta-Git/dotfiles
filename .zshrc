@@ -21,6 +21,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   gradle
+  rust
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -78,8 +79,7 @@ export ARCHFLAGS="-arch $(uname -m)"
 
 eval "$(cs install --env)"
 
-# bun completions
-[ -s "/Users/kosta/.bun/_bun" ] && source "/Users/kosta/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
