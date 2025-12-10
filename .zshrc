@@ -79,8 +79,7 @@ export ARCHFLAGS="-arch $(uname -m)"
 
 eval "$(cs install --env)"
 
-# bun completions
-[ -s "/home/kosta/.bun/_bun" ] && source "/home/kosta/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
