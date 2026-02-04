@@ -34,7 +34,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-[[ -s "$HOME/.bun/_bun" ]] && source "~/.bun/_bun"
 [[ -f "$HOME/.ghcup/env" ]] && . "/home/kosta/.ghcup/env" # ghcup-env
 
 eval "$(scw autocomplete script shell=zsh)"
@@ -43,9 +42,11 @@ eval "$(zoxide init zsh)"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export PATH=$PATH:/Users/kosta/Library/Android/sdk/platform-tools
+  [[ -s "$HOME/.bun/_bun" ]] && source "~/.bun/_bun"
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
+  export PATH=$PATH:/usr/local/go/bin
 fi
 
 HISTFILE=~/.zsh_history
@@ -66,3 +67,6 @@ alias terraform="tofu"
 alias cd="z"
 
 fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+
+# bun completions
+[ -s "/home/kosta/.bun/_bun" ] && source "/home/kosta/.bun/_bun"
