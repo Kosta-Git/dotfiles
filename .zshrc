@@ -30,8 +30,8 @@ source <(fzf --zsh)
 export PATH=$PATH:$HOME/.local/bin
 export SDKMAN_DIR="$HOME/.sdkman"
 export ARCHFLAGS="-arch $(uname -m)"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export BUN_INSTALL="~/.bun"
+export PATH="$HOME/.bun/bin:$PATH"
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [[ -f "$HOME/.ghcup/env" ]] && . "/home/kosta/.ghcup/env" # ghcup-env
@@ -69,4 +69,4 @@ alias cd="z"
 fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
 # bun completions
-[ -s "/home/kosta/.bun/_bun" ] && source "/home/kosta/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
