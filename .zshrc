@@ -33,7 +33,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export OCD_I=$OPEN_OCD_SCRIPTS/interface
   export OCD_T=$OPEN_OCD_SCRIPTS/target
   [ -f "/Users/kosta/.ghcup/env" ] && . "/Users/kosta/.ghcup/env" # ghcup-env
-  alias claude="/Users/kosta/.claude/local/claude"
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
