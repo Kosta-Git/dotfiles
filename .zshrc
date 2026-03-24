@@ -32,6 +32,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export ARCHFLAGS="-arch $(uname -m)"
 export BUN_INSTALL="~/.bun"
 export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/.nsccli/bin"
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [[ -f "$HOME/.ghcup/env" ]] && . "/home/kosta/.ghcup/env" # ghcup-env
