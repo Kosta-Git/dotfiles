@@ -39,10 +39,12 @@ export PATH="$HOME/.bun/bin:$PATH"
 eval "$(scw autocomplete script shell=zsh)"
 eval "$(cs install --env)"
 eval "$(zoxide init zsh)"
+eval "$(just --completions zsh)"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export PATH=$PATH:/Users/kosta/Library/Android/sdk/platform-tools
   [[ -s "$HOME/.bun/_bun" ]] && source "~/.bun/_bun"
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
