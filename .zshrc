@@ -35,8 +35,8 @@ export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$PATH:$HOME/.nsccli/bin"
 
+[[ -f "$HOME/.ghcup/env" ]] && . "$HOME/.ghcup/env" # ghcup-env
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-[[ -f "$HOME/.ghcup/env" ]] && . "/home/kosta/.ghcup/env" # ghcup-env
 
 eval "$(scw autocomplete script shell=zsh)"
 eval "$(cs install --env)"
@@ -45,7 +45,6 @@ eval "$(just --completions zsh)"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export PATH=$PATH:/Users/kosta/Library/Android/sdk/platform-tools
-  [[ -s "$HOME/.bun/_bun" ]] && source "~/.bun/_bun"
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
