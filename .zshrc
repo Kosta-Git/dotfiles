@@ -7,12 +7,8 @@ plugins=(
   git
   brew
   npm
-  nvm
-  lxd
-  terraform
   kubectl
   docker
-  golang
   helm
   httpie
   dnf
@@ -35,13 +31,11 @@ export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$PATH:$HOME/.nsccli/bin"
 
-[[ -f "$HOME/.ghcup/env" ]] && . "$HOME/.ghcup/env" # ghcup-env
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-eval "$(scw autocomplete script shell=zsh)"
-eval "$(cs install --env)"
 eval "$(zoxide init zsh)"
 eval "$(just --completions zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export PATH=$PATH:/Users/kosta/Library/Android/sdk/platform-tools
