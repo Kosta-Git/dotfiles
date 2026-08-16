@@ -4,16 +4,16 @@ ZSH_THEME="catppuccin"
 CATPPUCCIN_FLAVOR="macchiato"
 
 plugins=(
-  git 
-  brew 
-  npm 
-  nvm 
-  lxd 
-  terraform 
-  kubectl 
-  docker 
-  golang 
-  helm 
+  git
+  brew
+  npm
+  nvm
+  lxd
+  terraform
+  kubectl
+  docker
+  golang
+  helm
   httpie
   dnf
   zsh-autosuggestions
@@ -30,7 +30,7 @@ source <(fzf --zsh)
 export PATH=$PATH:$HOME/.local/bin
 export SDKMAN_DIR="$HOME/.sdkman"
 export ARCHFLAGS="-arch $(uname -m)"
-export BUN_INSTALL="~/.bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$PATH:$HOME/.nsccli/bin"
