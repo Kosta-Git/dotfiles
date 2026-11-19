@@ -8,3 +8,6 @@
 
 .config/ghostty/wallust.conf
 .config/ghostty/config.bak-*
+
+.config/rex/*.bak
+.config/rex/.claude/

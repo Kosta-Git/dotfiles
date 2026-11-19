@@ -1,4 +1,37 @@
+# Theme - note: name has spaces
 theme = Catppuccin Mocha
 
-keybind = ctrl+shift+w=close_surface
+# Font settings
+font-family = FantasqueSansM Nerd Font Mono
+font-size = 17
 
+# Window settings
+background-opacity = 0.96
+window-padding-x = 4
+window-padding-y = 4
+window-decoration = true
+confirm-close-surface = false
+
+# Scrollback
+scrollback-limit = 2000
+
+# Disable audio bell
+bell-features = no-audio
+
+# Split behavior (similar to Kitty's inactive_text_alpha)
+unfocused-split-opacity = 0.7
+
+# Shell integration
+shell-integration = detect
+
+# macOS specific
+macos-option-as-alt = true
+
+# Pane navigation (matches nvim/tmux Ctrl+hjkl)
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+# Close split/tab with Ctrl+Shift+W (mainly for Linux; Cmd+W covers macOS)
+keybind = ctrl+shift+w=close_surface

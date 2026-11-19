@@ -17,7 +17,8 @@ cd ~/dotfiles && ./init.sh
 | `.config/zsh/Linux.zsh` | Linux-only paths and tools |
 | `.config/zsh/Darwin.zsh` | macOS-only paths and tools |
 | `.config/{kitty,nvim,tmux,fastfetch}` | App configs |
-| `.config/ghostty/config` | Ghostty settings and keybinds (Mac-style, Ctrl+Shift for Cmd) |
+| `.config/ghostty/config` | Ghostty settings and keybinds (tuned on macOS; Ctrl+Shift+W close for Linux) |
+| `.config/rex/init.lua` | Rex terminal config |
 
 `.zshrc` sources `~/.config/zsh/$(uname).zsh`, so anything specific to one
 system goes in that file instead of behind an `if` in `.zshrc`.
