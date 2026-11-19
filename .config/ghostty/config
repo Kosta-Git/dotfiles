@@ -28,10 +28,10 @@ shell-integration = detect
 macos-option-as-alt = true
 
 # Pane navigation (matches nvim/tmux Ctrl+hjkl)
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:bottom
-keybind = ctrl+k=goto_split:top
-keybind = ctrl+l=goto_split:right
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+j=goto_split:bottom
+keybind = performable:ctrl+k=goto_split:top
+keybind = performable:ctrl+l=goto_split:right
 
 # Close split/tab with Ctrl+Shift+W (mainly for Linux; Cmd+W covers macOS)
 keybind = ctrl+shift+w=close_surface
