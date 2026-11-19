@@ -1,0 +1,4 @@
+theme = Catppuccin Mocha
+
+keybind = ctrl+shift+w=close_surface
+

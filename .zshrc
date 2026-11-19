@@ -1,3 +1,7 @@
+# Shared shell config. Anything that only applies to one OS lives in
+# ~/.config/zsh/Linux.zsh or ~/.config/zsh/Darwin.zsh.
+
+# --- oh-my-zsh ---------------------------------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
@@ -18,48 +22,38 @@ plugins=(
   rust
 )
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.secrets
-source $HOME/.cargo/env
-source <(fzf --zsh)
+source "$ZSH/oh-my-zsh.sh"
 
-export PATH=$PATH:$HOME/.local/bin
+# --- Environment -------------------------------------------------------------
+source "$HOME/.cargo/env"
+
 export SDKMAN_DIR="$HOME/.sdkman"
-export ARCHFLAGS="-arch $(uname -m)"
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$HOME/.bun/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$PATH:$HOME/.nsccli/bin"
+export ARCHFLAGS="-arch $(uname -m)"
+export PATH="$HOME/go/bin:$BUN_INSTALL/bin:$PATH:$HOME/.local/bin:$HOME/.nsccli/bin"
 
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Secrets live in the Proton Pass "CLI" vault and are only handed to the
+# command that asks for them: `secrets stripe listen`
+secrets() { pass-cli run --env-file "$HOME/.config/zsh/secrets.env" -- "$@" }
 
-eval "$(zoxide init zsh)"
+# --- OS-specific paths and tools ---------------------------------------------
+source "$HOME/.config/zsh/$(uname).zsh"
+
+# --- Tools -------------------------------------------------------------------
+source <(fzf --zsh)
 eval "$(just --completions zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  export PATH=$PATH:/Users/kosta/Library/Android/sdk/platform-tools
-  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-fi
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+[[ -s "$BUN_INSTALL/_bun" ]] && source "$BUN_INSTALL/_bun"
 
-if [[ "$(uname)" == "Linux" ]]; then
-  export PATH=$PATH:/usr/local/go/bin
-  export ANDROID_HOME="$HOME/Android/Sdk"
-  export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
-  export PATH="$PATH:/home/kosta/.turso"
-
-  if [[ -d /usr/local/cuda/bin ]]; then
-    export CUDA_ROOT=/usr/local/cuda
-    export PATH="$CUDA_ROOT/bin:$PATH"
-    export CUDA_COMPUTE_CAP=86 # RTX 3080 Ti (GA102) = sm_86
-  fi
-fi
-
+# --- History -----------------------------------------------------------------
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 
+# --- Aliases -----------------------------------------------------------------
 alias ls="lsd"
 alias l="ls -l"
 alias la="ls -a"
@@ -72,12 +66,14 @@ alias zcfg="nvim ~/.zshrc"
 alias terraform="tofu"
 alias cd="z"
 
-fastfetch -c $HOME/.config/fastfetch/config-v2.jsonc
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# --- Terminal ----------------------------------------------------------------
+fastfetch -c "$HOME/.config/fastfetch/config-v2.jsonc"
 
 # Disable terminal focus reporting and discard leaked focus events.
+# Zed specific fix.
 printf '\e[?1004l'
 bindkey -s $'\e[I' ''
 bindkey -s $'\e[O' ''
+
+# zoxide must be initialised last so nothing overrides its directory hook.
+eval "$(zoxide init zsh)"

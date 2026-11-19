@@ -5,3 +5,6 @@
 .config/fastfetch/*.png
 
 .config/nvim/lazy-lock.json
+
+.config/ghostty/wallust.conf
+.config/ghostty/config.bak-*
